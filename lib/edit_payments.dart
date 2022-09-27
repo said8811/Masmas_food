@@ -19,6 +19,7 @@ class Editpayment extends StatelessWidget {
                 fit: BoxFit.cover)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           InkWell(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
             onTap: () {
               Navigator.pop(context);
             },
@@ -38,6 +39,8 @@ class Editpayment extends StatelessWidget {
             height: 42,
           ),
           InkWell(
+            borderRadius: BorderRadius.all(Radius.circular(25)),
+            splashColor: Colors.blueAccent,
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Shipping()));
@@ -48,8 +51,13 @@ class Editpayment extends StatelessWidget {
               ),
               height: 73,
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFF253B80).withOpacity(0.2),
+                        blurRadius: 40)
+                  ],
                   borderRadius: BorderRadius.all(Radius.circular(22)),
-                  color: Colors.white),
+                  color: Colors.white54),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -17,10 +17,16 @@ class Shipping extends StatelessWidget {
               image: AssetImage('assets/images/Pattern.png'),
               fit: BoxFit.cover)),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-          padding: EdgeInsets.only(left: 5),
-          width: 52,
-          child: Image(image: AssetImage('assets/images/back_key.png')),
+        InkWell(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            padding: EdgeInsets.only(left: 5),
+            width: 52,
+            child: Image(image: AssetImage('assets/images/back_key.png')),
+          ),
         ),
         SizedBox(
           height: 20,
