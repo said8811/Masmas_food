@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutters/call_ringing.dart';
 import 'package:flutters/edit_payments.dart';
+import 'package:flutters/home_page.dart';
 import 'package:flutters/onBording.dart';
 import 'package:flutters/output_photo.dart';
 import 'package:flutters/payments.dart';
@@ -8,6 +9,7 @@ import 'package:flutters/set_location.dart';
 import 'package:flutters/shipping.dart';
 import 'package:flutters/sign_up.dart';
 import 'package:flutters/sinfishi.dart';
+import 'package:flutters/testscreen/sinfishi.dart';
 import 'package:flutters/upload_preview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -36,7 +38,7 @@ class _MyWidgetState extends State<MyWidget> {
           home: child,
         );
       },
-      child: OnBoarding(),
+      child: Homepage(),
     );
   }
 }
