@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutters/call_ringing.dart';
 import 'package:flutters/utils/styles.dart';
 
 class Signup extends StatelessWidget {
@@ -54,7 +55,10 @@ class Signup extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(0))),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Call()));
+                    },
                     child: Text(
                       "Try order",
                       style: TextStyle(color: Colors.white, fontSize: 16),

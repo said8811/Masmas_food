@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutters/set_location.dart';
 import 'package:flutters/utils/styles.dart';
 
 class Upload_p extends StatelessWidget {
@@ -19,7 +20,9 @@ class Upload_p extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: Container(
                 width: 52,
                 decoration: BoxDecoration(),
@@ -72,7 +75,12 @@ class Upload_p extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(0))),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Setlocation()));
+                    },
                     child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),

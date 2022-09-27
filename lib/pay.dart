@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutters/edit_payments.dart';
+import 'package:flutters/payments.dart';
 import 'package:flutters/utils/styles.dart';
 
-class Payments extends StatelessWidget {
-  const Payments({super.key});
+class Pay extends StatefulWidget {
+  const Pay({super.key});
+
+  @override
+  State<Pay> createState() => _PayState();
+}
+
+class _PayState extends State<Pay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +26,9 @@ class Payments extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             InkWell(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
               onTap: () {
-                
+                Navigator.pop(context);
               },
               child: Container(
                 width: 52,
@@ -267,17 +276,25 @@ class Payments extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    width: 325,
-                    height: 57,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: Center(
-                      child: Text(
-                        "Place My Order",
-                        style: MyStyles.robotoBold700
-                            .copyWith(color: Color(0xFF53E88B), fontSize: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Editpayment()));
+                    },
+                    child: Container(
+                      width: 325,
+                      height: 57,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: Center(
+                        child: Text(
+                          "Place My Order",
+                          style: MyStyles.robotoBold700
+                              .copyWith(color: Color(0xFF53E88B), fontSize: 16),
+                        ),
                       ),
                     ),
                   )
@@ -288,5 +305,6 @@ class Payments extends StatelessWidget {
         ),
       ),
     );
+    ;
   }
 }

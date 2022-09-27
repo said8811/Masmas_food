@@ -43,13 +43,69 @@ class Shipping extends StatelessWidget {
           ),
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 12, top: 8),
                   child: Text(
                     "Order Location",
+                    style: MyStyles.robotoRegular400
+                        .copyWith(color: Colors.grey[400]),
+                  ),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.only(
+                        bottom: 20,
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(13))),
+                      child: Image.asset(
+                        'assets/images/location.png',
+                        width: 33,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 9),
+                      child: Text(
+                        "8502 Preston Rd. Inglewood,\n Maine 98380",
+                        style: MyStyles.robotoBold700.copyWith(fontSize: 15),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 17,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Container(
+            height: 121,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(22)),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 12, top: 12),
+                  child: Text(
+                    "Deliver to",
                     style: MyStyles.robotoRegular400
                         .copyWith(color: Colors.grey[400]),
                   ),
@@ -76,71 +132,18 @@ class Shipping extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 9),
                       child: Text(
-                        "8502 Preston Rd. Inglewood,\n Maine 98380",
+                        "4517 Washington Ave. Manchester,\n Kentucky 39495",
                         style: MyStyles.robotoBold700.copyWith(fontSize: 15),
                       ),
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 40,
-                ),
-                Container(
-                  height: 121,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(22)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12, top: 12),
-                        child: Text(
-                          "Deliver to",
-                          style: MyStyles.robotoRegular400
-                              .copyWith(color: Colors.grey[400]),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            padding: EdgeInsets.only(
-                              bottom: 20,
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(13))),
-                            child: Image.asset(
-                              'assets/images/location.png',
-                              width: 33,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 9),
-                            child: Text(
-                              "4517 Washington Ave. Manchester,\n Kentucky 39495",
-                              style:
-                                  MyStyles.robotoBold700.copyWith(fontSize: 15),
-                            ),
-                          )
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 60),
-                        child: Text(
-                          "set location",
-                          style: MyStyles.robotoRegular400
-                              .copyWith(color: Color.fromARGB(255, 115, 195, 118)),
-                        ),
-                      )
-                    ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 60),
+                  child: Text(
+                    "set location",
+                    style: MyStyles.robotoRegular400
+                        .copyWith(color: Color.fromARGB(255, 115, 195, 118)),
                   ),
                 )
               ],

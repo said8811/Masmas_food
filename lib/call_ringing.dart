@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutters/pay.dart';
+import 'package:flutters/payments.dart';
+import 'package:flutters/sinfishi.dart';
 import 'package:flutters/utils/styles.dart';
 
 class Call extends StatefulWidget {
@@ -93,7 +96,10 @@ class _CallState extends State<Call> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            text = "Call finished";
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Pay()));
                           });
                         },
                         child: Icon(Icons.cancel),
