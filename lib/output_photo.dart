@@ -4,12 +4,21 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutters/payments.dart';
 import 'package:flutters/upload_preview.dart';
+import 'package:flutters/utils/colors.dart';
 
-class Output extends StatelessWidget {
+class Output extends StatefulWidget {
   const Output({super.key});
 
   @override
+  State<Output> createState() => _OutputState();
+}
+
+bool isDark = false;
+
+class _OutputState extends State<Output> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -69,12 +78,19 @@ class Output extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Colors.blue),
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.blue),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        isDark
+                            ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                            : Colors.white,
+                      ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.r),
-                              side: BorderSide(color: Colors.white)))),
+                              side: BorderSide(
+                                color: isDark
+                                    ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                                    : Colors.white,
+                              )))),
                 ),
               ),
             ),
@@ -99,12 +115,19 @@ class Output extends StatelessWidget {
                           MaterialStateProperty.all<Color>(Colors.blue),
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.blue),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        isDark
+                            ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                            : Colors.white,
+                      ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.r),
-                              side: BorderSide(color: Colors.white)))),
+                              side: BorderSide(
+                                color: isDark
+                                    ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                                    : Colors.white,
+                              )))),
                 ),
               ),
             ),

@@ -4,11 +4,19 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutters/set_location.dart';
 import 'package:flutters/utils/styles.dart';
 
-class Upload_p extends StatelessWidget {
+class Upload_p extends StatefulWidget {
   const Upload_p({super.key});
 
   @override
+  State<Upload_p> createState() => _Upload_pState();
+}
+
+bool isDark = false;
+
+class _Upload_pState extends State<Upload_p> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -79,7 +87,7 @@ class Upload_p extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Setlocation()));
+                              builder: (context) => Set_Location()));
                     },
                     child: Text(
                       "Next",

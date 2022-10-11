@@ -2,24 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutters/signup_process.dart';
 import 'package:flutters/utils/colors.dart';
 import 'package:flutters/utils/gradient.dart';
 import 'package:flutters/utils/styles.dart';
 
-class Signin extends StatelessWidget {
-  const Signin({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
+  State<SignIn> createState() => _SignInState();
+}
+
+bool isDark = false;
+
+class _SignInState extends State<SignIn> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.only(left: 25, top: 47, right: 25).r,
         decoration: BoxDecoration(
-            color: Colors.white24,
+            color: isDark ? Color.fromARGB(204, 15, 15, 15) : Colors.white24,
             image: DecorationImage(
-                image: AssetImage('assets/images/call_pattern.png'))),
+                image: AssetImage('assets/images/paterndark.png'),
+                fit: BoxFit.cover)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -62,9 +72,11 @@ class Signin extends StatelessWidget {
               height: 57.h,
               padding: EdgeInsets.only(left: 20),
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.1, color: Colors.grey),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Colors.white),
+                border: Border.all(width: 0.1, color: Colors.grey),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color:
+                    isDark ? Mycolors.C_F4F4F4.withOpacity(0.05) : Colors.white,
+              ),
               child: Row(children: [
                 Image(
                   image: AssetImage('assets/images/person_icon.png'),
@@ -88,9 +100,11 @@ class Signin extends StatelessWidget {
               height: 57.h,
               padding: EdgeInsets.only(left: 20),
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.1, color: Colors.grey),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Colors.white),
+                border: Border.all(width: 0.1, color: Colors.grey),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color:
+                    isDark ? Mycolors.C_F4F4F4.withOpacity(0.05) : Colors.white,
+              ),
               child: Row(children: [
                 Image(
                   image: AssetImage('assets/images/massage.png'),
@@ -114,9 +128,11 @@ class Signin extends StatelessWidget {
               height: 57.h,
               padding: EdgeInsets.only(left: 20),
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.1, color: Colors.grey),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Colors.white),
+                border: Border.all(width: 0.1, color: Colors.grey),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color:
+                    isDark ? Mycolors.C_F4F4F4.withOpacity(0.05) : Colors.white,
+              ),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -137,12 +153,11 @@ class Signin extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 20.0),
-                      child: Image(
-                        image: AssetImage('assets/images/eye.png'),
-                        width: 24,
-                      ),
-                    )
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: SvgPicture.asset(
+                          'assets/svg/eye.svg',
+                          color: Color(0xFF200E32),
+                        ))
                   ]),
             ),
             SizedBox(
@@ -209,7 +224,7 @@ class Signin extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUpProcess()));
+                      MaterialPageRoute(builder: (context) => SignUpProcees()));
                 },
                 child: Container(
                   width: 175.w,
@@ -244,5 +259,6 @@ class Signin extends StatelessWidget {
         ),
       )),
     );
+    ;
   }
 }

@@ -4,19 +4,27 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutters/call_ringing.dart';
 import 'package:flutters/utils/styles.dart';
 
-class Signup extends StatelessWidget {
+class Signup extends StatefulWidget {
   const Signup({super.key});
 
   @override
+  State<Signup> createState() => _SignupState();
+}
+
+bool isDark = false;
+
+class _SignupState extends State<Signup> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 31),
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDark ? Color.fromARGB(204, 15, 15, 15) : Colors.white,
               image: DecorationImage(
-                  image: AssetImage('assets/images/call_pattern.png'),
+                  image: AssetImage('assets/images/paterndark.png'),
                   fit: BoxFit.cover)),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

@@ -7,11 +7,19 @@ import 'package:flutters/signup.dart';
 import 'package:flutters/utils/colors.dart';
 import 'package:flutters/utils/styles.dart';
 
-class SignUpProcess extends StatelessWidget {
-  const SignUpProcess({super.key});
+class SignUpProcees extends StatefulWidget {
+  const SignUpProcees({super.key});
 
   @override
+  State<SignUpProcees> createState() => _SignUpProceesState();
+}
+
+bool isDark = false;
+
+class _SignUpProceesState extends State<SignUpProcees> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -57,8 +65,9 @@ class SignUpProcess extends StatelessWidget {
             height: 57.h,
             padding: EdgeInsets.only(left: 20, top: 20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Colors.white),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              color: isDark ? Mycolors.C_F4F4F4.withOpacity(0.1) : Colors.white,
+            ),
             child: Text(
               "First Name",
               style:
@@ -73,8 +82,9 @@ class SignUpProcess extends StatelessWidget {
             height: 57.h,
             padding: EdgeInsets.only(left: 20, top: 20).r,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Colors.white),
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+              color: isDark ? Mycolors.C_F4F4F4.withOpacity(0.1) : Colors.white,
+            ),
             child: Text(
               "Last Name",
               style:
@@ -89,8 +99,9 @@ class SignUpProcess extends StatelessWidget {
             height: 57.h,
             padding: EdgeInsets.only(left: 20, top: 20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15).r),
-                color: Colors.white),
+              borderRadius: BorderRadius.all(Radius.circular(15).r),
+              color: isDark ? Mycolors.C_F4F4F4.withOpacity(0.1) : Colors.white,
+            ),
             child: Text(
               "Mobile number",
               style:
@@ -127,5 +138,6 @@ class SignUpProcess extends StatelessWidget {
         ]),
       )),
     );
+    ;
   }
 }

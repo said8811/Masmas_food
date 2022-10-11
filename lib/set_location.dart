@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutters/sign_up.dart';
+import 'package:flutters/utils/colors.dart';
 import 'package:flutters/utils/styles.dart';
 
-class Setlocation extends StatelessWidget {
-  const Setlocation({super.key});
+class Set_Location extends StatefulWidget {
+  const Set_Location({super.key});
 
   @override
+  State<Set_Location> createState() => _Set_LocationState();
+}
+
+bool isDark = false;
+
+class _Set_LocationState extends State<Set_Location> {
+  @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -58,7 +67,9 @@ class Setlocation extends StatelessWidget {
               width: 342,
               height: 147,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDark
+                      ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                      : Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(25))),
               child: Column(
                 children: [
@@ -85,7 +96,9 @@ class Setlocation extends StatelessWidget {
                     width: 322,
                     height: 57,
                     decoration: BoxDecoration(
-                        color: Color(0xFFF6F6F6),
+                        color: isDark
+                            ? Mycolors.C_F4F4F4.withOpacity(0.1)
+                            : Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(25))),
                     child: Center(
                       child: Text(

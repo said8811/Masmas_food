@@ -15,6 +15,8 @@ class OnBoarding extends StatefulWidget {
   State<OnBoarding> createState() => _OnBoardingState();
 }
 
+bool isDark = false;
+
 class _OnBoardingState extends State<OnBoarding> {
   @override
   void initState() {
@@ -34,6 +36,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
+    isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
         body: SafeArea(
       child: InkWell(
@@ -43,30 +46,34 @@ class _OnBoardingState extends State<OnBoarding> {
           },
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: isDark ? Color.fromARGB(204, 15, 15, 15) : Colors.white,
                 image: DecorationImage(
-                    image: AssetImage("assets/images/call_pattern.png"))),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Center(
-                child: Image(
-                  image: AssetImage('assets/images/masmas.png'),
-                  width: 175.w,
-                ),
-              ),
-              Container(
-                child: GradientText(
-                  'MasmasFood',
-                  style: MyStyles.robotoBold700.copyWith(fontSize: 40),
-                  gradient: LinearGradient(
-                      colors: [Mycolors.C_53E88B, Mycolors.C_15BE77]),
-                ),
-              ),
-              Text(
-                "Deliever Favorite Food",
-                style: MyStyles.robotoBold700.copyWith(fontSize: 14),
-              ),
-            ]),
+                    image: AssetImage("assets/images/paterndark.png"),
+                    fit: BoxFit.cover)),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Image(
+                        image: AssetImage('assets/images/masmas.png'),
+                        width: 175.w,
+                      ),
+                    ),
+                    Container(
+                      child: GradientText(
+                        'MasmasFood',
+                        style: MyStyles.robotoBold700.copyWith(fontSize: 40),
+                        gradient: LinearGradient(
+                            colors: [Mycolors.C_53E88B, Mycolors.C_15BE77]),
+                      ),
+                    ),
+                    Text(
+                      "Deliever Favorite Food",
+                      style: MyStyles.robotoBold700.copyWith(fontSize: 14),
+                    ),
+                  ]),
+            ),
           )),
     ));
   }
